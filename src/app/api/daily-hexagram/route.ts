@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { binaryToHexagram, hexagramsByNumber } from '@/oracle/IChingEngine';
+import { hexagramsByNumber } from '@/oracle/IChingEngine';
 
 export const dynamic = 'force-dynamic';
 
@@ -32,6 +32,3 @@ export async function GET() {
     hexagram: data,
   });
 }
-
-// Re-export for completeness / potential reuse, even though unused directly here.
-export { binaryToHexagram };
