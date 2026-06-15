@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { hexagramsByNumber } from '@/oracle/IChingEngine';
+import { hexagrams } from '@/data/hexagrams';
 
 export const dynamic = 'force-dynamic';
 
@@ -25,8 +25,9 @@ export async function GET() {
   }
   const hexagramNumber = (hash % 64) + 1;
 
-  const data = hexagramsByNumber[hexagramNumber];
-
+const data = Object.values(hexagrams).find(
+  (h) => h.number === hexagramNumber
+);
   return NextResponse.json({
     date: dateString,
     hexagram: data,
